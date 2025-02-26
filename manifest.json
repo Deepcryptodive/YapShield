@@ -5,7 +5,9 @@
   "description": "Filters AI slop posts on X",
   "permissions": [
     "action",
-    "storage"
+    "storage",
+    "tabs",
+    "scripting"
   ],
   "background": {
     "service_worker": "background.js"
@@ -18,5 +20,11 @@
   ],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/ethers.umd.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
