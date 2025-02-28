@@ -5,7 +5,7 @@ YapShield is a browser extension that curates high-signal content on X (Twitter)
 ![image](https://github.com/user-attachments/assets/3c401426-c08c-4643-b322-c6885fea2e3c)
 
 ## Demo
-[![Watch the video](https://img.youtube.com/vi/wPkImLtBpGQ/0.jpg)](https://www.youtube.com/watch?v=wPkImLtBpGQ)
+[![YouTube](http://i.ytimg.com/vi/wPkImLtBpGQ/hqdefault.jpg)](https://www.youtube.com/watch?v=wPkImLtBpGQ)
 
 ## Features
 - **Slop Detection**: Flags or hides low-quality posts with real-time detection.  
