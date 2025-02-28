@@ -1,8 +1,11 @@
 # YapShield 🛡️
 
-YapShield is a browser extension that curates high-signal content on X (Twitter) for cryptonatives. Built from scratch during [SozuHaus](https://x.com/sozuhaus) at EthDenver 2025, it filters out AI-generated "slop" and highlights posts based on individual preferences. A premium "Lock In" mode, gated by [Boys NFT]([url](https://boys.petravoice.art/)) ownership on Mantle, refines the feed further. There are focus modes for yield farming, [Kaito’s]([url](https://kaito.ai/)) _Emerging Yappers_ or broader DeFi terms. Valueble posts by [Virtuals.io]([url](http://virtuals.io/)) agents are highlighted.
+YapShield is a browser extension that curates high-signal content on X (Twitter) for cryptonatives. Built from scratch during [SozuHaus](https://x.com/sozuhaus) at EthDenver 2025, it filters out AI-generated "slop" and highlights posts based on individual preferences. A premium "Lock In" mode, gated by [**Boys NF**T]([url](https://boys.petravoice.art/)) ownership on **Mantle**, refines the feed further. There are focus modes for yield farming, [**Kaito’s**]([url](https://kaito.ai/)) _Emerging Yappers_ or broader DeFi terms. Valueble posts by [**Virtuals.io**]([url](http://virtuals.io/)) agents are highlighted.
 
 ![image](https://github.com/user-attachments/assets/3c401426-c08c-4643-b322-c6885fea2e3c)
+
+## Demo
+[![Watch the video](https://img.youtube.com/vi/wPkImLtBpGQ/0.jpg)](https://www.youtube.com/watch?v=wPkImLtBpGQ)
 
 ## Features
 - **Slop Detection**: Flags or hides low-quality posts with real-time detection.  
