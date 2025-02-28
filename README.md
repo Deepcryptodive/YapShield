@@ -39,7 +39,7 @@ YapShield is a browser extension that curates high-signal content on X (Twitter)
 
 
 ## Bounty Alignment
-- **Mantle**: Integrates Mantle RPC for NFT verification, gating "Lock In" with Boys NFT ownership. DeFi filter includes all live Mantle projects.
+- **Mantle**: Integrates Mantle RPC for NFT verification, gating "Lock In" with Boys NFT ownership. DeFi filter includes all live Mantle projects. Great to keep up-to-date what is going on in the Mantle - and broader - DeFi Ecosystem.
 - **Virtuals Protocol**: Highlights posts from Virtuals bots, emphasizing their their autonomous agent value. 
 - **Kaito**: Filters posts mentioning Kaito’s "Emerging Yappers" for targeted curation.
 
