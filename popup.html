@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SlopShield</title>
+  <title>YapShield</title>
   <script src="lib/ethers.umd.min.js"></script>
   <style>
     body {
@@ -10,6 +10,13 @@
       background-color: #f0f0f0;
       padding: 10px;
       width: 250px;
+    }
+    .header {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
     }
     .toggle-container {
       display: flex;
@@ -19,6 +26,7 @@
     }
     .toggle-label {
       font-weight: bold;
+      font-size: 14px;
     }
     .toggle-switch {
       position: relative;
@@ -60,15 +68,18 @@
       transform: translateX(20px);
     }
     #slopScoreContainer {
-      margin-top: 20px;
-      text-align: center;
+      display: none;
+      position: relative;
+      height: 20px;
+      margin-top: 5px;
     }
     #slopProgressBar {
-      height: 10px;
+      height: 100%;
       background-color: #ccc;
       width: 100%;
       border-radius: 5px;
-      margin-top: 5px;
+      position: relative;
+      overflow: hidden;
     }
     #slopProgress {
       height: 100%;
@@ -77,7 +88,20 @@
       border-radius: 5px;
       transition: width 0.3s ease;
     }
+    #slopScore {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 20px; /* Adjusted to match container height */
+      font-size: 16px; /* Slightly smaller for fit */
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
     .hardcoded-info {
+      display: none;
       color: grey;
       font-size: 12px;
       margin-top: 5px;
@@ -87,59 +111,100 @@
       font-size: 14px;
     }
     #nftImage {
-      width: 50px;
-      height: 50px;
-      margin-top: 5px;
+      width: 100%;
+      height: auto;
+      margin-top: 8px;
       display: none;
     }
-    #nftCheckmark {
-      display: none;
+    #nftStatus {
+      color: grey;
+      font-size: 12px;
       margin-left: 5px;
+    }
+    #defiModesContainer {
+      display: none;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .defi-mode-btn {
+      padding: 5px 10px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #fff;
+      margin: 0 2px;
+    }
+    .defi-mode-btn.active {
+      background-color: #2196F3;
+      color: white;
+      border-color: #2196F3;
+    }
+    #verifyButton {
+      padding: 2px 8px;
+      font-size: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #fff;
+      margin-left: 5px;
+    }
+    #lockInToggle {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <div class="header">YapShield</div>
   <div class="toggle-container">
-    <span class="toggle-label">On/Off (Whole Plugin)</span>
+    <span class="toggle-label">Access X</span>
     <label class="toggle-switch">
-      <input type="checkbox" id="toggleExtension" checked>
+      <input type="checkbox" id="toggleExtension">
       <span class="slider"></span>
     </label>
   </div>
+  <div class="hardcoded-info">
+    @deepcryptodive | deepcryptodive.eth
+  </div>
   <div class="toggle-container">
-    <span class="toggle-label">Debug Mode</span>
+    <span class="toggle-label">Slop Spotlight</span>
     <label class="toggle-switch">
       <input type="checkbox" id="toggleDebug">
       <span class="slider"></span>
     </label>
   </div>
-  <div class="toggle-container">
-    <span class="toggle-label">Highlight DeFi</span>
-    <label class="toggle-switch">
-      <input type="checkbox" id="toggleDeFiMode" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-  <div class="toggle-container">
-    <span class="toggle-label">DeFi-Only Mode</span>
-    <span id="nftCheckmark">✅</span>
-    <label class="toggle-switch">
-      <input type="checkbox" id="toggleDeFiFilter">
-      <span class="slider"></span>
-    </label>
-  </div>
   <div id="slopScoreContainer">
-    <p id="slopScore">Slop filtered: 0 posts (0.00%)</p>
     <div id="slopProgressBar">
       <div id="slopProgress"></div>
+      <p id="slopScore">Slop found: 0 posts (0.00%)</p>
     </div>
-    <div class="hardcoded-info">
-      X Handle: @deepcryptodive<br>
-      ENS: deepcryptodive.eth
-    </div>
-    <div id="nftInfo"></div>
-    <img id="nftImage" alt="Boys NFT Image">
   </div>
+  <div class="toggle-container">
+    <span class="toggle-label">DeFi Glow</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="toggleDeFiMode">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <div class="toggle-container">
+    <span class="toggle-label">Lock In</span>
+    <span id="nftStatus"><button id="verifyButton">verify NFT key</button></span>
+    <span id="lockInToggle">
+      <label class="toggle-switch">
+        <input type="checkbox" id="toggleDeFiFilter">
+        <span class="slider"></span>
+      </label>
+    </span>
+  </div>
+  <div id="defiModesContainer">
+    <div id="defiModes">
+      <button class="defi-mode-btn" data-mode="farming" title="Only show yieldfarming-related posts">Farming</button>
+      <button class="defi-mode-btn" data-mode="emerging" title="Filter posts by the weekly top Emerging Yappers from Kaito">Top Yappers</button>
+      <button class="defi-mode-btn active" data-mode="broad" title="Filter posts mentioning broad DeFi keywords">All DeFi</button>
+    </div>
+  </div>
+  <img id="nftImage" alt="Boys NFT Image">
+  <div id="nftInfo"></div>
   <script src="popup.js"></script>
 </body>
 </html>
