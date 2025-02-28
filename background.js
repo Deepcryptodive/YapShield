@@ -2,9 +2,8 @@
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.slopCount !== undefined) {
-    // Update the badge text with the slop count
-    chrome.action.setBadgeText({ text: message.slopCount.toString() });
-    // Set the badge background color to red
+    const badgeText = message.slopCount > 0 ? message.slopCount.toString() : '';
+    chrome.action.setBadgeText({ text: badgeText });
     chrome.action.setBadgeBackgroundColor({ color: "#FF0000" });
   }
 });
